@@ -1,0 +1,24 @@
+version: '2.4'
+services:
+
+  keras-py36-r:
+    build:
+      context: ./deepo_keras-py36-r
+    image: encoredtechr/deepo:keras-py36-r
+    depends_on:
+      - cuda90_cudnn7
+    ports:
+      - 8888:8888
+      - 6006:6006
+      - 8787:8787
+    environment:
+      - JUPYTER_PASSWD=${JUPYTER_PASSWD}
+    volumes:
+      - ${HOME}/workspace/:/root/workspace
+      - ./jupyter-config:/root/.jupyter
+      - /data6:/root/data6
+    runtime: nvidia
+    command: /init jupyter notebook
+
+  cuda90_cudnn7:
+    image: nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
