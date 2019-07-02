@@ -1,5 +1,5 @@
 # personal-research-env
-my personal research environment docker which contains tensorflow, keras, pytorch
+my personal research environment docker which contains tensorflow, keras, pytorch, and jupyter notebook & lab
 
 ## Pre-requisite
 - `docker`
