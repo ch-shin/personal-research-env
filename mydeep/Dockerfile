@@ -74,6 +74,7 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
         ipywidgets \
         jax \
         jupyter \
+		jupyterlab \
         jupyternotify \
         keras \
         matplotlib \
@@ -82,7 +83,6 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
 	    pandas-profiling \
         pipenv \
 		plotly \
-		pdb \
         pyarrow \
         python-dateutil \
         scikit-learn \
@@ -90,12 +90,11 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
         seaborn \
         tensorflow-gpu \
         tqdm
-
 # ==================================================================
 # pytorch
 # ------------------------------------------------------------------
-
-    $PIP_INSTALL \
+ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
+     $PIP_INSTALL \
         future \
         numpy \
         protobuf \
@@ -103,27 +102,22 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
         pyyaml \
         typing \
         torch \
-        && \
-
+		&& \
     $PIP_INSTALL \
     "git+https://github.com/pytorch/vision.git" && \
-
     $PIP_INSTALL \
         torch_nightly -f \
-        https://download.pytorch.org/whl/nightly/cu100/torch_nightly.html \
-        && \
-
-
+        https://download.pytorch.org/whl/nightly/cu100/torch_nightly.html
 # ==================================================================
-# IRkernel to jupyter
-# ------------------------------------------------------------------
-
-RUN Rscript -e 'install.packages("IRkernel")' && \
-    Rscript -e 'IRkernel::installspec()'
+# Additional Python tools
+# ==================================================================
+RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
+	$PIP_INSTALL \
+       modin
 
 # ==================================================================
 # cleanup
-# ------------------------------------------------------------------
+# ==================================================================
 
 RUN ldconfig && \
     apt-get clean && \
