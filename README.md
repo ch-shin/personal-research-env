@@ -30,7 +30,7 @@ docker-compose up -d
 #### Connect to Jupyter Notebook
 On browser, connect to `HOST_IT:8888` then type password as you set via environment varible `JUPYTER_PASSWD`.
 
-### If you install my dotfiles in jupyter terminal
+### If you want to install my dotfiles in jupyter terminal
 ```
 git clone --recursive https://github.com/ch-shin/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && chmod +x setup.sh && bash setup.sh
