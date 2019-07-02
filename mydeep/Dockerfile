@@ -113,6 +113,8 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
 # ==================================================================
 RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
 	$PIP_INSTALL \
+       setproctitle \
+       psutil \
        modin
 
 # ==================================================================
