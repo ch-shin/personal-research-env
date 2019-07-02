@@ -1,12 +1,9 @@
 version: '2.4'
 services:
 
-  keras-py36-r:
+  mydeep:
     build:
-      context: ./deepo_keras-py36-r
-    image: encoredtechr/deepo:keras-py36-r
-    depends_on:
-      - cuda90_cudnn7
+      context: ./mydeep
     ports:
       - 8888:8888
       - 6006:6006
@@ -18,7 +15,5 @@ services:
       - ./jupyter-config:/root/.jupyter
       - /data6:/root/data6
     runtime: nvidia
-    command: /init jupyter notebook
-
-  cuda90_cudnn7:
-    image: nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+    command: jupyter lab --port=8888 --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token=''
+             
