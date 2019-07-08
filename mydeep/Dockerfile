@@ -21,7 +21,6 @@ RUN rm -rf /var/lib/apt/lists/* \
 # ==================================================================
 # tools
 # ------------------------------------------------------------------
-
 RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
@@ -38,6 +37,11 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         software-properties-common \
         ssh \
         vim
+#        node-gyp \
+#        libssl1.0-dev \
+#        nodejs-dev \
+#        npm
+
 
 
 # ==================================================================
@@ -115,7 +119,45 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
 	$PIP_INSTALL \
        setproctitle \
        psutil \
-       modin
+       modin \
+       ruamel.yaml \
+#       jupyterlab_code_formatter \
+#       jupyterlab_latex
+       
+
+# ==================================================================
+# jupyter lab extensions
+# ================================================================== 
+#RUN jupyter labextension install nbdime-jupyterlab
+# --no-build && \
+#    jupyter labextension install @krassowski/jupyterlab_go_to_definition && \
+#    jupyter labextension install @ryantam626/jupyterlab_code_formatter && \
+#    jupyter serverextension enable --py jupyterlab_code_formatter && \
+#    jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
+#    jupyter labextension install jupyterlab_bokeh --no-build && \
+#    jupyter labextension install bqplot --no-build && \
+#    jupyter labextension install @jupyterlab/vega3-extension --no-build && \
+#    jupyter labextension install @jupyterlab/git --no-build && \
+#    jupyter labextension install @jupyterlab/hub-extension --no-build && \
+#    jupyter labextension install jupyterlab_tensorboard --no-build && \
+#    jupyter labextension install jupyterlab-kernelspy --no-build && \
+#    jupyter labextension install @jupyterlab/plotly-extension --no-build && \
+#    jupyter labextension install jupyterlab-chart-editor --no-build && \
+#    jupyter labextension install plotlywidget --no-build && \
+#    jupyter labextension install @jupyterlab/latex --no-build && \
+#    jupyter labextension install jupyter-matplotlib --no-build && \
+#    jupyter labextension install jupyterlab-drawio --no-build && \
+#    jupyter labextension install jupyter-leaflet --no-build && \
+#    jupyter labextension install qgrid --no-build && \
+#    jupyter labextension install @mflevine/jupyterlab_html --no-build && \
+#    jupyter lab build && \
+#        jupyter lab clean && \
+#        jlpm cache clean && \
+#        npm cache clean --force && \
+#        rm -rf $HOME/.node-gyp && \
+#        rm -rf $HOME/.local && \
+#    
+
 
 # ==================================================================
 # cleanup
