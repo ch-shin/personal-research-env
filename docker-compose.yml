@@ -8,7 +8,6 @@ services:
     ports:
       - 8888:8888
       - 6006:6006
-      - 8787:8787
     environment:
       - JUPYTER_PASSWD=${JUPYTER_PASSWD}
     volumes:
