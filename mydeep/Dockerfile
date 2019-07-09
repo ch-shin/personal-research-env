@@ -57,8 +57,8 @@ RUN git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT && \
     echo 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> $HOME/.bashrc
 
     # python
-RUN pyenv install 3.6.0 && \
-    pyenv global 3.6.0
+RUN pyenv install 3.6.3 && \
+    pyenv global 3.6.3
 
 # ==================================================================
 # python packages
@@ -120,7 +120,7 @@ RUN PIP_INSTALL="pip --no-cache-dir install --upgrade" && \
        setproctitle \
        psutil \
        modin \
-       ruamel.yaml \
+       ruamel.yaml
 #       jupyterlab_code_formatter \
 #       jupyterlab_latex
        
