@@ -15,5 +15,5 @@ services:
       - ./jupyter-config:/root/.jupyter
       - /data6:/root/data6
     runtime: nvidia
-    command: jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token=''
+    command: jupyter lab --port=8888 --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token=''
              
