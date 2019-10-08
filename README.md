@@ -36,7 +36,7 @@ git clone --recursive https://github.com/ch-shin/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && chmod +x setup.sh && bash setup.sh
 ```
 
-### Turn off Jupyter Notebook
+### Turn off Jupyter Notebook and Docker
 ```
 docker-compose down
 ```
