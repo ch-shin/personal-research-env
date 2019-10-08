@@ -6,7 +6,6 @@ my personal research environment docker which contains tensorflow, keras, pytorc
 - `docker-compose`
 - `nvidia driver`
 - `cuda 10.0`
-- `nvidia docker`
 
 ## Quickstart
 ### Clone `ch-shin/personal-research-env` repository
